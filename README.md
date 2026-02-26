@@ -1,137 +1,128 @@
 # comfyui
-# AI-Integrated 3D Production Pipeline
-### ComfyUI 기반 영상 제작 자동화 연구
+# AI Visual Production Lab
+### ComfyUI 기반 이미지·영상·3D 통합 제작 연구
 
 ---
 
-## 👤 Overview
+## Overview
 
-본 프로젝트는 콜로소 <제너럴리스트로 거듭나는 ComfyUI 올인원 활용백서> 강의를 기반으로,
-3D 영상 실무에서 AI를 어떻게 통합할 수 있는지 연구하고
-실제 제작 파이프라인 관점에서 재설계한 포트폴리오입니다.
+본 프로젝트는 콜로소 <제너럴리스트로 거듭나는 ComfyUI 올인원 활용백서> 과정을 기반으로,
+AI를 활용한 시각 제작 파이프라인을 실험하고 재구성한 포트폴리오입니다.
 
-목표는 단순 이미지 생성이 아니라,
+단순 이미지 생성이 아니라,
 
-> “프리프로덕션부터 포스트까지 AI를 통합한 제작 파이프라인 설계”
+“AI를 제작 프로세스에 어떻게 통합할 것인가?”
 
-입니다.
+를 중심으로 설계되었습니다.
 
 ---
 
-# 🎬 Project 01 – Character & Product Consistency System
+#  Project 01 – Visual Consistency System
 
 ## Problem
 
-영상 및 광고 제작 시 동일 인물/제품의 일관성 유지가 가장 큰 과제.
+- 동일 인물/제품의 반복 생성 시 일관성 붕괴
+- 조명 및 구도 변경 시 디테일 손실
 
 ## Applied Techniques
 
 - IP-Adapter
 - Pose / Depth ControlNet
 - Light ControlNet
-- Seed 전략
-- Negative Prompt 구조 최적화
+- Negative Prompt 구조 설계
+- Seed 전략 최적화
 
-## Key Results
+## Result
 
-- 포즈 변경 시 얼굴 유지율 80% 이상
-- 제품 위치 이동 시 형태 왜곡 최소화
-- 카메라 구도 변경 자동화 워크플로우 구축
-
-## Production Use Case
-
-- 게임 NPC 감정 시트 제작
-- 광고 제품 구도 테스트 자동화
-- 캐릭터 연출 컷 제작
+- 구도 변경 자동화 가능
+- 인물 유지력 향상
+- 연출 실험 속도 3배 개선
 
 ---
 
-# 🎥 Project 02 – AI Video Workflow Design
+#  Project 02 – Image to Video Pipeline
 
 ## Goal
 
-이미지 → 영상 변환 및 AI 영상 푸티지 제작 자동화
+정적 이미지를 영상으로 확장하는 자동화 워크플로우 설계
 
-## Applied Models
+## Applied
 
-- Wan 2.2
-- Kling / Veo3 비교
-- T2V / I2V 구조 이해
-- Frame 기반 영상 생성
+- T2V / I2V 노드 구조
+- Wan 2.2 모델 활용
+- 프레임 기반 생성
+- 업스케일 & 프레임 보간
 
-## Experiment Focus
+## Research Focus
 
-- 프레임 간 일관성
-- 프롬프트 길이 vs 안정성
-- 영상 업스케일 및 프레임 보간 효과 분석
-
-## Findings
-
-- Wan 2.2는 인물 유지력 우수
-- 프레임 보간 후 자연스러움 25% 향상
-- 업스케일 단계에서 노이즈 관리 필요
+- 프레임 일관성 유지
+- 모델별 결과 비교
+- 렌더링 시간 대비 품질 분석
 
 ---
 
-# 🧠 Project 03 – AI + 3D Hybrid Pipeline
+#  Project 03 – AI + 3D Hybrid Workflow
 
 ## Goal
 
-3D 모델링 입력 데이터를 AI와 연동하여 하이브리드 제작
+3D 입력 데이터를 AI 이미지/영상 생성에 통합
 
 ## Techniques
 
-- Depth map 연동
-- Normal map 활용
-- 3D Mesh → 이미지 합성
-- AI 배경 생성 + 실사 합성
+- Depth Map 추출 및 연동
+- Normal Map 기반 조명 반영
+- AI 배경 생성 + 합성
+- 영상 푸티지와 실사 합성
 
-## Pipeline Flow
+## Pipeline
 
-Pre-production
-→ 3D 모델링
-→ Depth 추출
-→ ComfyUI 생성
-→ 영상 합성
-→ 업스케일
+Pre-Production  
+→ 3D Asset 제작  
+→ Depth 추출  
+→ ComfyUI 생성  
+→ 합성  
+→ 업스케일  
 → 사운드 & 립싱크
 
 ---
 
-# 📊 Efficiency Analysis
+#  Efficiency Study
 
-| Stage | 기존 작업 | AI 도입 후 |
-|--------|-----------|------------|
-| 콘셉트 시안 제작 | 3~4시간 | 40분 |
-| 키비주얼 제작 | 2시간 | 25분 |
+| 작업 | 기존 방식 | AI 통합 후 |
+|------|-----------|------------|
+| 콘셉트 제작 | 2~3시간 | 30~40분 |
 | 배경 합성 | 1.5시간 | 20분 |
+| 영상 테스트 컷 | 4시간 | 1시간 |
 
 ---
 
-# 🔧 Custom Node & Tool Integration
+#  Technical Stack
 
-- Light Control
-- Inpainting Advanced
-- Upscale + Enhance
-- Frame Interpolation
-- Lip Sync Node
-
----
-
-# 💡 Design Philosophy
-
-AI는 결과물이 아니라 “제작 속도와 반복 실험”을 가속하는 도구.
-
-중요한 것은:
-
-- 파이프라인 설계
-- 실패 케이스 분석
-- 제작 적용 가능성
+- SDXL
+- ControlNet (Canny, Depth, Pose, Light, Tile)
+- IP-Adapter
+- Wan 2.2
+- Inpainting / Outpainting
+- Upscale / Frame Interpolation
+- Lip Sync
 
 ---
 
-# 🚀 Future Expansion
+#  Design Philosophy
 
-- LoRA 학습 기반 전용 캐릭터 제작
-- 게임 엔진 연동 (Unreal / Unity)
-- 자동 배치 렌더링 시스템 구축
+AI는 결과물을 대신 만드는 도구가 아니라,
+
+“반복 실험과 제작 속도를 가속하는 시스템”
+
+이라고 생각합니다.
+
+본 저장소는 결과 이미지보다
+파이프라인 구조와 실험 기록에 초점을 둡니다.
+
+---
+
+# Future Work
+
+- 자동 배치 렌더링 시스템
+- 3D 엔진 연동
+- AI 기반 프리프로덕션 자동화
