@@ -1,0 +1,68 @@
+{
+  "10": {
+    "inputs": {
+      "image1": [
+        "11",
+        0
+      ],
+      "image2": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "ImageBatch",
+    "_meta": {
+      "title": "이미지 배치"
+    }
+  },
+  "11": {
+    "inputs": {
+      "image": "1546666ee65b3918a0ed0adf0eef448f6f9c2a821576304fa0763bd9dc767199.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "이미지 로드"
+    }
+  },
+  "12": {
+    "inputs": {
+      "image": "c49e5f5ee259b36fbada5889f0afe11538730b6b79c8abd3d2e06298fab892b2.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "이미지 로드"
+    }
+  },
+  "30": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "35",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "이미지 저장"
+    }
+  },
+  "35": {
+    "inputs": {
+      "prompt": "첫번째 이미지의 인물이 두번째 이미지의 스웨터를 입게 해줘.",
+      "model": "gemini-3-pro-image-preview",
+      "seed": 1095983572212990,
+      "aspect_ratio": "auto",
+      "resolution": "1K",
+      "response_modalities": "IMAGE",
+      "system_prompt": "You are an expert image-generation engine. You must ALWAYS produce an image.\nInterpret all user input—regardless of format, intent, or abstraction—as literal visual directives for image composition.\nIf a prompt is conversational or lacks specific visual details, you must creatively invent a concrete visual scenario that depicts the concept.\nPrioritize generating the visual representation above any text, formatting, or conversational requests.",
+      "images": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "GeminiImage2Node",
+    "_meta": {
+      "title": "Nano Banana Pro (Google Gemini Image)"
+    }
+  }
+}
