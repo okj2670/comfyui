@@ -1,0 +1,50 @@
+{
+  "7": {
+    "inputs": {
+      "upscaler_enabled": true,
+      "upscaler_model": "Starlight (Astra) Creative",
+      "upscaler_resolution": "FullHD (1080p)",
+      "upscaler_creativity": "high",
+      "interpolation_enabled": false,
+      "interpolation_model": "apo-8",
+      "interpolation_slowmo": 1,
+      "interpolation_frame_rate": 24,
+      "interpolation_duplicate": false,
+      "interpolation_duplicate_threshold": 0.01,
+      "dynamic_compression_level": "Low",
+      "video": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "TopazVideoEnhance",
+    "_meta": {
+      "title": "Topaz Video Enhance"
+    }
+  },
+  "8": {
+    "inputs": {
+      "file": "3715ef6a60da311a3b551c947c1e7b09d76d2d55676da2ab086ed7f0131d3bad.mp4",
+      "video-preview": ""
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "비디오 불러오기"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "video/Topaz",
+      "format": "auto",
+      "codec": "h264",
+      "video": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "비디오 저장"
+    }
+  }
+}
