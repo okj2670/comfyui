@@ -1,0 +1,30 @@
+{
+  "4": {
+    "inputs": {
+      "model": "stable-audio-2.5",
+      "prompt": "Post-Rock, Guitars, Drum Kit, Bass, Strings, Euphoric, Up-Lifting, Moody, Flowing, Raw, Epic, Sentimental, 125 BPM",
+      "duration": 190,
+      "seed": 3096487861,
+      "steps": 8
+    },
+    "class_type": "StabilityTextToAudio",
+    "_meta": {
+      "title": "Stability AI 텍스트-오디오 변환"
+    }
+  },
+  "6": {
+    "inputs": {
+      "filename_prefix": "audio/ComfyUI",
+      "quality": "V0",
+      "audioUI": "",
+      "audio": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "SaveAudioMP3",
+    "_meta": {
+      "title": "오디오 저장 (MP3)"
+    }
+  }
+}

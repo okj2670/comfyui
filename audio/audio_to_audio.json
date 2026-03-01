@@ -1,0 +1,54 @@
+{
+  "6": {
+    "inputs": {
+      "filename_prefix": "audio/ComfyUI",
+      "quality": "V0",
+      "audioUI": "",
+      "audio": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "SaveAudioMP3",
+    "_meta": {
+      "title": "오디오 저장 (MP3)"
+    }
+  },
+  "10": {
+    "inputs": {
+      "model": "stable-audio-2.5",
+      "prompt": "Soulful Boom Bap Hip Hop instrumental, Solemn effected Piano, SP-1200, low-key swing drums, sine wave bass, Characterful, Peaceful, Interesting, well-arranged composition,\n\n\n",
+      "duration": 190,
+      "seed": 3668557805,
+      "steps": 8,
+      "strength": 0.9,
+      "audio": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "StabilityAudioToAudio",
+    "_meta": {
+      "title": "Stability AI 오디오 변환"
+    }
+  },
+  "11": {
+    "inputs": {
+      "audio": "api_stability_ai_audio_to_audio_input_audio.mp3",
+      "audioUI": "/api/view?filename=api_stability_ai_audio_to_audio_input_audio.mp3&type=input&subfolder=&"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "오디오 로드"
+    }
+  },
+  "15": {
+    "inputs": {
+      "audio": ""
+    },
+    "class_type": "RecordAudio",
+    "_meta": {
+      "title": "오디오 녹음"
+    }
+  }
+}

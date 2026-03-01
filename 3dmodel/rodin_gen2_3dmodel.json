@@ -1,0 +1,40 @@
+{
+  "82": {
+    "inputs": {
+      "image": "b6b98b43193b91413bd731567d9720b3650c86ac55df49651e740f76eb5e25d1.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "이미지 로드"
+    }
+  },
+  "84": {
+    "inputs": {
+      "model_file": [
+        "85",
+        0
+      ],
+      "image": ""
+    },
+    "class_type": "Preview3D",
+    "_meta": {
+      "title": "3D 미리보기"
+    }
+  },
+  "85": {
+    "inputs": {
+      "TAPose": false,
+      "Seed": 0,
+      "Material_Type": "PBR",
+      "Polygon_count": "500K-Triangle",
+      "Images": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "Rodin3D_Gen2",
+    "_meta": {
+      "title": "Rodin 3D 생성 - Gen-2 생성"
+    }
+  }
+}
