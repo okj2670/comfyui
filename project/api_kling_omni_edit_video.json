@@ -1,0 +1,154 @@
+{
+  "3": {
+    "inputs": {
+      "filename_prefix": "video/Kling",
+      "format": "auto",
+      "codec": "h264",
+      "video-preview": "",
+      "video": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "비디오 저장"
+    }
+  },
+  "8": {
+    "inputs": {
+      "model_name": "kling-video-o1",
+      "prompt": "chage the background in [@Video] to the plant and architecture background\nfrom [@Image]",
+      "keep_original_sound": true,
+      "resolution": "1080p",
+      "seed": 2071369079,
+      "video": [
+        "22",
+        0
+      ],
+      "reference_images": [
+        "24",
+        0
+      ]
+    },
+    "class_type": "KlingOmniProEditVideoNode",
+    "_meta": {
+      "title": "Kling 옴니 비디오 편집 (Pro)"
+    }
+  },
+  "21": {
+    "inputs": {
+      "video": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "비디오 컴포넌트 추출"
+    }
+  },
+  "22": {
+    "inputs": {
+      "fps": 24,
+      "images": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "비디오 생성"
+    }
+  },
+  "23": {
+    "inputs": {
+      "file": "3f7fc0f9e3620a500931eb2fdab8bfa7d64631f549ee68894cfb76a6149c059a.mp4",
+      "video-preview": ""
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "비디오 불러오기"
+    }
+  },
+  "24": {
+    "inputs": {
+      "image": "7808c1f41af6408d378b1f10691f9204ee72412e61048aa5724e044178c33d51.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "이미지 로드"
+    }
+  },
+  "25": {
+    "inputs": {
+      "filename_prefix": "video/Kling",
+      "format": "auto",
+      "codec": "h264",
+      "video-preview": "",
+      "video": [
+        "26",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "비디오 저장"
+    }
+  },
+  "26": {
+    "inputs": {
+      "model_name": "kling-video-o1",
+      "prompt": "change the cloth in [@Video] to the shirt from [@Image]",
+      "keep_original_sound": true,
+      "resolution": "1080p",
+      "seed": 755859652,
+      "video": [
+        "27",
+        0
+      ],
+      "reference_images": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "KlingOmniProEditVideoNode",
+    "_meta": {
+      "title": "Kling 옴니 비디오 편집 (Pro)"
+    }
+  },
+  "27": {
+    "inputs": {
+      "fps": 24,
+      "images": [
+        "29",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "비디오 생성"
+    }
+  },
+  "28": {
+    "inputs": {
+      "image": "06d80aecce776fda63179b4109a29e36db6614d7347a0f6aafbc153068646f7f.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "이미지 로드"
+    }
+  },
+  "29": {
+    "inputs": {
+      "video": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "비디오 컴포넌트 추출"
+    }
+  }
+}
