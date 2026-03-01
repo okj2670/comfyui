@@ -1,0 +1,226 @@
+{
+  "17": {
+    "inputs": {
+      "image": "5812ca94a7f62c3c27eb839c81195e777290ceee30c31d25a4d69bb80f888640.png [input]"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "이미지 로드"
+    }
+  },
+  "62": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "110:65",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "이미지 저장"
+    }
+  },
+  "121": {
+    "inputs": {
+      "images": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "이미지 미리보기"
+    }
+  },
+  "110:59": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAE 로드"
+    }
+  },
+  "110:60": {
+    "inputs": {
+      "guidance": 30,
+      "conditioning": [
+        "110:74",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FLUX 가이드"
+    }
+  },
+  "110:61": {
+    "inputs": {
+      "conditioning": [
+        "110:74",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "조건 (0으로 출력)"
+    }
+  },
+  "110:63": {
+    "inputs": {
+      "strength": 1,
+      "model": [
+        "110:64",
+        0
+      ]
+    },
+    "class_type": "DifferentialDiffusion",
+    "_meta": {
+      "title": "차등 확산"
+    }
+  },
+  "110:65": {
+    "inputs": {
+      "samples": [
+        "110:58",
+        0
+      ],
+      "vae": [
+        "110:59",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE 디코드"
+    }
+  },
+  "110:71": {
+    "inputs": {
+      "noise_mask": false,
+      "positive": [
+        "110:60",
+        0
+      ],
+      "negative": [
+        "110:61",
+        0
+      ],
+      "vae": [
+        "110:59",
+        0
+      ],
+      "pixels": [
+        "110:75",
+        0
+      ],
+      "mask": [
+        "110:75",
+        1
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "인페인팅 모델 조건 설정"
+    }
+  },
+  "110:58": {
+    "inputs": {
+      "seed": 81318610500751,
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "110:63",
+        0
+      ],
+      "positive": [
+        "110:71",
+        0
+      ],
+      "negative": [
+        "110:71",
+        1
+      ],
+      "latent_image": [
+        "110:73",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "110:73": {
+    "inputs": {
+      "samples": [
+        "110:71",
+        2
+      ],
+      "mask": [
+        "110:75",
+        1
+      ]
+    },
+    "class_type": "SetLatentNoiseMask",
+    "_meta": {
+      "title": "잠재 데이터에 노이즈 마스크 설정"
+    }
+  },
+  "110:75": {
+    "inputs": {
+      "left": 40,
+      "top": 0,
+      "right": 104,
+      "bottom": 104,
+      "feathering": 40,
+      "image": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "ImagePadForOutpaint",
+    "_meta": {
+      "title": "아웃페인팅을 위한 이미지 패딩"
+    }
+  },
+  "110:74": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "110:57",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "110:64": {
+    "inputs": {
+      "unet_name": "flux.1-fill-dev-OneReward-transformer_fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "확산 모델 로드"
+    }
+  },
+  "110:57": {
+    "inputs": {
+      "clip_name1": "clip_l.safetensors",
+      "clip_name2": "t5xxl_fp16.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "이중 CLIP 로드"
+    }
+  }
+}

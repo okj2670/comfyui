@@ -1,0 +1,68 @@
+{
+  "1": {
+    "inputs": {
+      "image": "b3bd87a8025288da6eeedfdfbe8dd4ce1dc1ef792a5446e2b9b7b9bf1ee96a46.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "이미지 로드"
+    }
+  },
+  "2": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "이미지 저장"
+    }
+  },
+  "3": {
+    "inputs": {
+      "prompt": "이 여자 모델이 커피를 카메라 앞으로 뻗고 웃고 있는 모습을 만들어줘.",
+      "model": "gemini-3-pro-image-preview",
+      "seed": 857274561742558,
+      "aspect_ratio": "1:1",
+      "resolution": "1K",
+      "response_modalities": "IMAGE",
+      "system_prompt": "You are an expert image-generation engine. You must ALWAYS produce an image.\nInterpret all user input—regardless of format, intent, or abstraction—as literal visual directives for image composition.\nIf a prompt is conversational or lacks specific visual details, you must creatively invent a concrete visual scenario that depicts the concept.\nPrioritize generating the visual representation above any text, formatting, or conversational requests.",
+      "images": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "GeminiImage2Node",
+    "_meta": {
+      "title": "Nano Banana Pro (Google Gemini Image)"
+    }
+  },
+  "4": {
+    "inputs": {
+      "image1": [
+        "1",
+        0
+      ],
+      "image2": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "ImageBatch",
+    "_meta": {
+      "title": "이미지 배치"
+    }
+  },
+  "5": {
+    "inputs": {
+      "image": "api_nano_banana_pro_input_image_2.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "이미지 로드"
+    }
+  }
+}
